@@ -2,23 +2,23 @@ sudo: required
 dist: trusty
 language: php 
 
- php:
-  - 7.1
+php:
+- 7.1
 
-  branches:
-    only:
-      - master #-> Staging Server
-      - develop #-> DevServer
-      # sebelum melakukan atau eksekusi script
-      # install kebutuhan os
+branches:
+  only:
+    - master #-> Staging Server
+    - develop #-> DevServer
+    # sebelum melakukan atau eksekusi script
+    # install kebutuhan os
 
-    
-    # pre eksekusi
-    # testing dll
-  before_script:
-    - cp .env.travis .env
-    - composer install --no-interaction
-    - php artisan key:generate
-    # main execution
-  script:
-    - ./vendor/bin/phpunit
+  
+  # pre eksekusi
+  # testing dll
+before_script:
+  - cp .env.travis .env
+  - composer install --no-interaction
+  - php artisan key:generate
+  # main execution
+script:
+  - ./vendor/bin/phpunit
